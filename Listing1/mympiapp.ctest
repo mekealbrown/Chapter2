@@ -7,11 +7,11 @@ mpirun -n 1 ./MPITimeIt > run1.out
 mpirun -n 2 ./MPITimeIt > run2.out
 # Compare the output for the two MPI jobs with a tolerance of 1%
 # Reduce the tolerance to 1.0e-5 to get test to fail
-ndiff --relative-error 1.0e-2 run1.out run2.out
+numdiff --relative-tolerance 1.0e-2 run1.out run2.out
 # Capture the status set by the ndiff command
 test1=$?
 # Compare the output for the serial job and the 2 processor MPI run with a tolerance of 1%
-ndiff --relative-error 1.0e-2 run0.out run2.out
+numdiff --relative-tolerance 1.0e-2 run0.out run2.out
 # Capture the status set by the ndiff command
 test2=$?
 # Exit with the cumulative status code so CTest can report pass or fail
