@@ -11,6 +11,8 @@ add_test(NAME blur_short_commit WORKING_DIRECTORY ${CMAKE_BINARY_DIRECTORY}
          COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/blur_short.ctest)
 add_test(NAME blur_long WORKING_DIRECTORY ${CMAKE_BINARY_DIRECTORY}
          COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/blur_long.ctest)
+add_test(NAME exercise2_test WORKING_DIRECTORY ${CMAKE_BINARY_DIRECTORY}
+				 COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/exercise2.ctest)
 
 # Custom target "commit_tests" to run all tests with commit in the name
 add_custom_target(commit_tests COMMAND ctest -R commit DEPENDS TimeIt)

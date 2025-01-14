@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Ensure that valgrind is executed and output is checked for leaks
+
+valgrind --leak-check=full --log-file=valgrind_output.txt ./TimeIt
+
+# Check for memory leaks
+if grep -q "no leaks are possible" valgrind_output.txt; then
+		rm valgrind_output.txt
+    exit 0  # Pass
+else
+    cat valgrind_output.txt  # Show the valgrind log for debugging
+		rm valgrind_output.txt
+    exit 1  # Fail
+fi
+
+
